@@ -13,19 +13,15 @@ const client = new MongoClient(uri, {
     strict: true,
     deprecationErrors: true,
     useNewUrlParser: true,
-  useUnifiedTopology: true,
-  ssl: true,
-  sslValidate: false, // Set to true in production with valid certificates
+    useUnifiedTopology: true,
+    ssl: true,
+    sslValidate: false, // Set to true in production with valid certificates
   }
 });
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.get('/data', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     await client.connect();
 
