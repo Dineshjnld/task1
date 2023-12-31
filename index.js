@@ -21,11 +21,11 @@ const client = new MongoClient(uri, {
 
 app.use(cors());
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
-app.get('/', async (req, res) => {
+app.get('/data', async (req, res) => {
   try {
     await client.connect();
 
